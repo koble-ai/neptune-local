@@ -74,7 +74,7 @@ jobs:
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: $GREMLIN_VERSION, latest
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:$GREMLIN_VERSION, ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
           build-args: |

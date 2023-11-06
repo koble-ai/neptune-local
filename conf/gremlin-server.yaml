@@ -4,6 +4,7 @@ threadPoolWorker: 1
 gremlinPool: 8
 graphs:
   graph1: ./conf_local/gremlin-graph-main.properties
+channelizer: org.apache.tinkerpop.gremlin.server.channel.WsAndHttpChannelizer
 scriptEngines:
   gremlin-groovy:
     plugins:
