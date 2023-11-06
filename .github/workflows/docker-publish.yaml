@@ -78,7 +78,7 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           build-args: |
-            GREMLIN_VERSION=$GREMLIN_VERSION
+            GREMLIN_VERSION=${{ env.GREMLIN_VERSION }}
 
       # Sign the resulting Docker image digest except on PRs.
       # This will only write to the public Rekor transparency log when the Docker
