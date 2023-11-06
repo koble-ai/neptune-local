@@ -6,8 +6,6 @@ name: Docker
 # documentation.
 
 on:
-  schedule:
-    - cron: '36 12 * * *'
   push:
     branches: [ "main" ]
     # Publish semver tags as releases.
@@ -18,6 +16,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
+  GREMLIN_VERSION: '3.6.2'
 
 
 jobs:
@@ -75,10 +74,11 @@ jobs:
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: $GREMLIN_VERSION, latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          build-args: |
+            GREMLIN_VERSION=$GREMLIN_VERSION
 
       # Sign the resulting Docker image digest except on PRs.
       # This will only write to the public Rekor transparency log when the Docker
