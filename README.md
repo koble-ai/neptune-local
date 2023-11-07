@@ -4,7 +4,8 @@ Wrapper of Gremlin Server allowing to be used as an AWS Neptune replacement, mai
 The code and inspiration taken from 
 [this AWS blog post](https://aws.amazon.com/blogs/database/automated-testing-of-amazon-neptune-data-access-with-apache-tinkerpop-gremlin/).
 
-The current image is running Gremlin Server 3.6.2 which is compatible with Amazon Neptune Engine Version 1.2.1.0.
+The current image is running Gremlin Server 3.6.2 which is compatible with Amazon Neptune Engine Version 1.2.1.0. 
+Besides that, 3.6.4 , 3.6.5 and 3.6 versions are also built.
 
 ## Usage
 To run locally:
